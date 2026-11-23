@@ -175,9 +175,11 @@ const Context = React.createContext<ContextType>(null!);
 
 const socket = io(config.wss);
 
-export const callCashOut = (at: number, index: "f" | "s") => {
-  let data = { type: index, endTarget: at };
-  socket.emit("cashOut", data);
+export const callCashOut = (index: "f" | "s") => {
+  // Never send a client-computed multiplier as a payout input. The server
+  // already received the user's auto-cashout `target` with the bet and must
+  // compute the cashout value from its own authoritative game clock/state.
+  socket.emit("cashOut", { type: index });
 };
 
 let fIncreaseAmount = 0;
@@ -189,7 +191,13 @@ let newState;
 let newBetState;
 
 export const Provider = ({ children }: any) => {
-  const token = new URLSearchParams(useLocation().search).get("cert");
+  // Capture the session token once, then remove it from the URL so it is not
+  // left in browser history, copied links, or subsequent Referer headers.
+  const location = useLocation();
+  const tokenRef = React.useRef<string | null>(
+    new URLSearchParams(location.search).get("cert")
+  );
+  const token = tokenRef.current;
   const [state, setState] = React.useState<ContextDataType>(init_state);
 
   newState = state;
@@ -247,6 +255,19 @@ export const Provider = ({ children }: any) => {
       }
     });
     return () => unityContext.removeAllEventListeners();
+  }, []);
+
+  React.useEffect(() => {
+    if (!tokenRef.current) return;
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("cert")) return;
+    params.delete("cert");
+    const query = params.toString();
+    window.history.replaceState(
+      window.history.state,
+      "",
+      window.location.pathname + (query ? `?${query}` : "") + window.location.hash
+    );
   }, []);
 
   React.useEffect(() => {

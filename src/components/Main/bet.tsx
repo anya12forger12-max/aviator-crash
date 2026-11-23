@@ -183,7 +183,7 @@ const Bet = ({ index, add, setAdd }: BetProps) => {
 			if (state.fautoCashoutState) {
 				if (cashOut < currentTarget) {
 					updateUserBetState({ [`${index}betted`]: false });
-					callCashOut(cashOut, index);
+					callCashOut(index);
 				}
 			}
 		}
@@ -194,7 +194,7 @@ const Bet = ({ index, add, setAdd }: BetProps) => {
 			if (state.sautoCashoutState) {
 				if (cashOut < currentTarget) {
 					updateUserBetState({ [`${index}betted`]: false });
-					callCashOut(cashOut, index);
+					callCashOut(index);
 				}
 			}
 		}
@@ -283,7 +283,7 @@ const Bet = ({ index, add, setAdd }: BetProps) => {
 					</div>
 					<div className="buttons-block">
 						{betted ? GameState === "PLAYING" ?
-							<button className="btn-waiting" onClick={() => { callCashOut(currentTarget, index) }}>
+							<button className="btn-waiting" onClick={() => { callCashOut(index) }}>
 								<span>
 									<label>CASHOUT</label>
 									<label className="amount">
