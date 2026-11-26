@@ -12,9 +12,6 @@ Direct URLs:
 - https://raw.githubusercontent.com/anya12forger12-max/aviator-crash/apk-release/gp-aviator-debug.apk
 - https://raw.githubusercontent.com/anya12forger12-max/aviator-crash/apk-release/gp-aviator-release.apk
 
-The gateway is a temporary Cloudflare Quick Tunnel and can change when the
-local tunnel restarts. Both APKs have the URL in `gateway-url.txt` baked in, but
-the app's in-app gateway setting can override it without reinstalling.
-
-The signed release is signed with a self-signed key (`CN=Aviator`) and verified
-with APK Signature Scheme v2 and v3. It is not a Play Store signing key.
+The gateway is an ephemeral Serveo tunnel and can change when the tunnel
+restarts. Both APKs have the URL in `gateway-url.txt` baked in, but the app's
+in-app gateway setting can override it without reinstalling.
