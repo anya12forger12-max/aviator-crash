@@ -1,2 +1,2 @@
-0af2a4774a993dab2cb43bc36c70d6c3cadfde51271a0c325456ab142a872253  gp-aviator-debug.apk
-54d5ff1673413a85c805364743aa84d746282f86bdf553f48d04102b78a6adaa  gp-aviator-release.apk
+5058b25b56ffdd1ab8c9da3f9866ab97e25468b15c555ad6b959c8d4bb8da9c1  gp-aviator-debug.apk
+daae478f99374505796194365e7d1d2b5d81a1cd0a7df1a677799997a656fdf2  gp-aviator-release.apk
