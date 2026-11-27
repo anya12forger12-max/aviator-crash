@@ -14,9 +14,10 @@ Direct URLs:
 - https://raw.githubusercontent.com/anya12forger12-max/aviator-crash/apk-release/gp-aviator-release.apk
 
 The gateway is an ephemeral Cloudflare HTTP/2 Quick Tunnel and can change when
-the tunnel or machine restarts. Both APKs have `gateway-url.txt` baked in, but
-the app's in-app gateway setting can override it without reinstalling. The
-quick tunnel targets the hardened nginx port 8444, which blocks admin routes.
+the tunnel or machine restarts. Both APKs read this branch's `gateway-url.txt`
+at startup, so a published change reaches installed apps without a new APK. A
+URL saved in Settings is an explicit override. The quick tunnel targets the
+hardened nginx port 8444, which blocks admin routes.
 
 The signed APK is signed with `CN=Aviator, O=GP, C=US` (certificate SHA-256
 `a8b758c357110b3e6b72634f41ccf7c204f6b13914494a5f0d36d8688cb01bc0`) and
