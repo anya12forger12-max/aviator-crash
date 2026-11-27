@@ -1,7 +1,7 @@
 # GP Aviator APKs
 
 Permanent public downloads for the Android builds. The current files are the
-audit-fixed release (branch `fix/audit-findings`, commit `f80f81d`) with version code 7.
+audit-fixed release (branch `fix/audit-findings`, commit `de8846f`) with version code 7.
 
 - Debug APK: `gp-aviator-debug.apk`
 - Signed release APK: `gp-aviator-release.apk`
