@@ -93,3 +93,14 @@ This snapshot is a front-end client with a small smoke test. It does not include
 ## License
 
 No `LICENSE` file is present in this repository. Unless otherwise stated, all rights are reserved by the repository owner. Contact information from earlier revisions: Discord `cashblaze129`, Telegram `@cashblaze129`, LinkedIn [Keyvel Bitcoin Solana](https://www.linkedin.com/in/keyvel-bitcoin-solana).
+
+## Quick start — 1 or 2 commands
+
+```bash
+./setup.sh          # install dependencies
+./setup.sh run      # start the project (when a run target exists)
+```
+
+`setup.sh` detects this repository's build system and installs the right toolchain
+dependencies. Use `./setup.sh test` to run the available checks. If a project has no
+standard run target, the script prints the correct command from the sections above.
